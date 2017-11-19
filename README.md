@@ -1,7 +1,5 @@
 # eZ Platform Demo
 
-![Screenshot](https://cloud.githubusercontent.com/assets/3033038/11806375/e116d414-a312-11e5-8675-02a23e2a7788.jpg "Screenshot")
-
 [![Build Status](https://img.shields.io/travis/ezsystems/ezplatform.svg?style=flat-square)](https://travis-ci.org/ezsystems/ezplatform)
 [![Downloads](https://img.shields.io/packagist/dt/ezsystems/ezplatform.svg?style=flat-square)](https://packagist.org/packages/ezsystems/ezplatform)
 [![Latest release](https://img.shields.io/github/release/ezsystems/ezplatform.svg?style=flat-square)](https://github.com/ezsystems/ezplatform/releases)
@@ -12,15 +10,6 @@
 
 *eZ Platform* is the 6th generation of *eZ Publish*, it is built on top of the Symfony framework (Full Stack).
 It has been in development since 2011, and integral part of the *eZ Publish Platform 5.x* as "Platform stack" since 2012.
-
-## What is eZ Platform Demo ?
-
-*eZ Platform Demo* is an example of a simple website using *eZ Platform*. This example should not be use for starting a new project.
-
-Features:
-- Blog
-- Gallery
-- Contact Form
 
 ## Requirements
 Full requirements can be found on the [Requirements](https://doc.ez.no/display/TECHDOC/Requirements) page.
