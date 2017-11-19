@@ -1,0 +1,19 @@
+{% javascripts
+    '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'
+    '%kernel.root_dir%/../vendor/components/bootstrap/js/bootstrap.min.js'
+    'assets/js/lightgallery.min.js'
+    'assets/js/custom.js'
+    'assets/php/twitter/tweetie.js'
+    'assets/php/contact-form/js/jquery.contact.js'
+    'assets/js/plugins/plugin.min.js'
+    'assets/js/particles.min.js'
+    'assets/js/app.js'
+    'assets/js/Meg4R0M.js'
+%}
+
+<!--[if lt IE 9]>
+<script src="{{ asset('assets/js/plugins/html5shiv.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/selectivizr.js') }}"></script>
+<![endif]-->
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}

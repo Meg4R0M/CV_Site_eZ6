@@ -1,0 +1,23 @@
+<!-- col-md-3 col-sm-6 col-xs-6 -->
+<div class="col-md-3 col-sm-6 col-xs-6">
+    <!-- pricing-table -->
+    <div class="pricing-table wow fadeInUp" data-wow-duration="1.5s">
+        <!-- table-title -->
+        <div class="table-title">
+            <h3>{{ ez_render_field( content, "date" ) }}</h3>
+        </div><!-- /table-title -->
+        <!-- table-title -->
+        <div class="table-price">
+            <h1>
+                <span class="price">{{ ez_render_field( content, "name" ) }}</span>
+                <span class="duration">{{ ez_render_field( content, "version" ) }}</span>
+            </h1>
+        </div><!-- /table-title -->
+        <!-- table-button -->
+        <div class="table-button">
+            <a href="{{ ez_field_value( content, "link" ) }}" title="Afficher la certification" class="btn btn-lg btn-nesto btn-cert" target="_blank">
+                Afficher
+            </a>
+        </div><!-- /table-button -->
+    </div><!-- /pricing-table -->
+</div><!-- /col-md-3 col-sm-6 col-xs-6 -->

@@ -1,0 +1,29 @@
+<!-- slide-item -->
+<div>
+
+    <!-- slide-content -->
+    <div class="slide-content">
+
+        <!-- client-img -->
+        <div class="client-img">
+            {{ ez_render_field(content, 'image', {
+                parameters: {
+                    alias: 'gallery_image_line_home'
+                }
+            }) }}
+        </div><!-- /client-img -->
+
+        <!-- client-name -->
+        <div class="client-name">
+            <h2>{{ ez_render_field( content, "name" ) }}</h2>
+            <p>{{ ez_render_field( content, "job_name" ) }}</p>
+        </div><!-- /client-name -->
+
+        <!-- client-quote -->
+        <div class="client-quote">
+            <p>{{ ez_render_field( content, "testimonial" ) }}</p>
+        </div><!-- /client-quote -->
+
+    </div><!-- /slide-content -->
+
+</div><!-- /slide-item -->

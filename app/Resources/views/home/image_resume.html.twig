@@ -1,0 +1,38 @@
+<!-- slide-item -->
+<div>
+    <!-- slide-content -->
+    <div class="slide-content">
+        <!-- resume-wrapper -->
+        <div class="resume-wrapper">
+            <!-- resume-image -->
+            <div class="resume-image">
+                {{ ez_render_field(content, 'presume_image', {
+                    parameters: {
+                        alias: 'gallery_image_line_home',
+                        alt: 'Resume Image',
+                        class: 'resumeImage'
+                    }
+                }) }}
+                <!-- resume-date -->
+                <div class="resume-date">
+                    <p>{{ ez_render_field(content, 'presume_date') }}</p>
+                </div><!-- /resume-date -->
+            </div><!-- /resume-image -->
+            <!-- resume-type -->
+            <div class="resume-type">
+                <i class="fa fa-briefcase"></i>
+            </div><!-- /resume-type -->
+            <!-- resume-content -->
+            <div class="resume-content">
+                <!-- resume-title -->
+                <div class="resume-title">
+                    <h4>{{ ez_render_field(content, 'presume_name') }}</h4>
+                </div><!-- /resume-title -->
+                <!-- resume-desc -->
+                <div class="resume-desc">
+                    <p>{{ ez_render_field(content, 'presume_caption') }}</p>
+                </div><!-- /resume-desc -->
+            </div><!-- /resume-content -->
+        </div><!-- /resume-wrapper -->
+    </div><!-- /slide-content -->
+</div><!-- /slide-item -->

@@ -1,0 +1,41 @@
+<!-- portfolio-item -->
+<figure>
+
+
+    <!-- item-image -->
+    <div class="item-image">
+        {{ ez_render_field(content, 'image', {
+            parameters: {
+                alias: 'gallery_image_line_home'
+            }
+        }) }}
+    </div><!-- item-image -->
+
+
+    <!-- figcaption -->
+    <figcaption>
+
+        <!-- item-content -->
+        <div class="item-content">
+
+            <!-- item-title -->
+            <div class="item-title">
+                <h4>{{ ez_field_value( content, "name" ) }}</h4>
+            </div><!-- /item-title -->
+
+            <!-- item-anchors -->
+            <div class="item-anchors">
+                <a class="fancybox" data-fancybox-type="iframe" href="{{ asset('assets/html/canturla-project.html') }}" title="{{ ez_field_value( content, "name" ) }}">
+                    <i class="fa fa-link"></i>
+                </a>
+                <a class="fancybox" href="{{ ez_field_value( content, "image_full" ).uri }}" title="{{ ez_field_value( content, "name" ) }}">
+                    <i class="fa fa-search"></i>
+                </a>
+            </div><!-- /item-anchors -->
+
+        </div><!-- /item-content -->
+
+    </figcaption><!-- /figcaption -->
+
+
+</figure><!-- /portfolio-item -->
