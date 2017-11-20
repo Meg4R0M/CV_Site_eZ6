@@ -22,6 +22,8 @@ ezpublish:
                             contact_location_id: '%app.layout.contact_location_id%'
                             testimonials_location_id: '%app.home.testimonials_location_id%'
                             certifications_location_id: '%app.home.certifications_location_id%'
+                            services_location_id: '%app.home.services_location_id%'
+                            skills_location_id: '%app.home.skills_location_id%'
                         match:
                             Identifier\ContentType: [home_page]
 
@@ -101,6 +103,19 @@ ezpublish:
                         match:
                             Identifier\ContentType: [certifications]
 
+                    services:
+                        controller: app.paginated_query_controller:contentQueryPaginationAction
+                        params:
+                            page_limit: '%app.home.services_limit%'
+                            query:
+                                query_type: AppBundle:LatestContent
+                                parameters:
+                                    location_id: '%app.home.services_location_id%'
+                                assign_results_to: images
+                        template: full\services.html.twig
+                        match:
+                            Identifier\ContentType: [services]
+
                 line:
                     blog_post:
                         template: line\blog_post.html.twig
@@ -127,6 +142,16 @@ ezpublish:
                         template: home\certification.html.twig
                         match:
                             Identifier\ContentType: [certification]
+
+                    service:
+                        template: home\service.html.twig
+                        match:
+                            Identifier\ContentType: [service]
+
+                    skill:
+                        template: home\skill.html.twig
+                        match:
+                            Identifier\ContentType: [skill]
 
                     blog_post:
                         template: home\blog_post.html.twig
@@ -202,6 +227,34 @@ ezpublish:
                         template: parts\content_list.html.twig
                         match:
                             Identifier\ContentType: [certifications]
+
+                    services:
+                        controller: ez_query:ContentQueryAction
+                        params:
+                            view_type: home
+                            query:
+                                query_type: AppBundle:LatestContent
+                                parameters:
+                                    limit: '%app.home.services_limit%'
+                                    location_id: '%app.home.services_location_id%'
+                                assign_results_to: content_items
+                        template: parts\content_list.html.twig
+                        match:
+                            Identifier\ContentType: [services]
+
+                    skills:
+                        controller: ez_query:ContentQueryAction
+                        params:
+                            view_type: home
+                            query:
+                                query_type: AppBundle:LatestContent
+                                parameters:
+                                    limit: '%app.home.skills_limit%'
+                                    location_id: '%app.home.skills_location_id%'
+                                assign_results_to: content_items
+                        template: parts\content_list.html.twig
+                        match:
+                            Identifier\ContentType: [skills]
 
                 blog:
                     blog_posts_list:

@@ -1,0 +1,21 @@
+<!-- col-md-6 -->
+<div class="col-md-6">
+    <!-- feature-box -->
+    <div class="feature-box wow fadeInLeft" data-wow-duration="1.5s">
+        <!-- box-icon -->
+        <div class="box-icon">
+            <i class="{{ ez_field_value( content, "icon_name" ) }}"></i>
+        </div><!-- /box-icon -->
+        <!-- box-icon -->
+        <div class="box-content">
+            <!-- box-title -->
+            <div class="box-title">
+                <h3>{{ ez_render_field( content, "name" ) }}</h3>
+            </div><!-- /box-title -->
+            <!-- box-desc -->
+            <div class="box-desc">
+                <p>{{ ez_render_field( content, "description" ) }}</p>
+            </div><!-- /box-desc -->
+        </div><!-- /box-icon -->
+    </div><!-- /feature-box -->
+</div><!-- /col-md-6 -->

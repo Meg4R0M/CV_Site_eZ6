@@ -56,6 +56,18 @@ parameters:
     app.home.certifications_location_id: 117
 
     # says how many images should be shown on home page
+    app.home.services_limit: 4
+
+    # locationId used for fetching `image` items on home page
+    app.home.services_location_id: 129
+
+    # says how many images should be shown on home page
+    app.home.skills_limit: 8
+
+    # locationId used for fetching `image` items on home page
+    app.home.skills_location_id: 134
+
+    # says how many images should be shown on home page
     app.home.personalResume_image_limit: 5
 
     # locationId used for fetching `image_resume` items on home page
