@@ -158,6 +158,11 @@ ezpublish:
                         match:
                             Identifier\ContentType: [blog_post]
 
+                    contact_form:
+                        template: home\contact.html.twig
+                        match:
+                            Identifier\ContentType: [contact_form]
+
                     blog:
                         controller: ez_query:ContentQueryAction
                         params:
@@ -171,6 +176,12 @@ ezpublish:
                         template: parts\content_list.html.twig
                         match:
                             Identifier\ContentType: [blog]
+
+                    contact_form:
+                        controller: app.controller.contactform:showContactFormAction
+                        template: parts\contact_form.html.twig
+                        match:
+                            Identifier\ContentType: [contact_form]
 
                     gallery:
                         controller: ez_query:ContentQueryAction
