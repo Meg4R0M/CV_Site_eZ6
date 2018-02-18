@@ -1,0 +1,241 @@
+{% extends noLayout == true ? viewbaseLayout : pagelayout %}
+
+{% block content %}
+
+    <!-- =========================================
+    Alternative Home Section
+    ========================================== -->
+    <!-- alternative-home-section -->
+    <div id="alternative-home-section">
+
+        <!-- alternative-home-section-overlayer -->
+        <div id="alternative-home-section-overlayer"></div>
+
+        <!-- alternative-home-section-container -->
+        <div id="alternative-home-section-container">
+
+
+            <!-- breadcrumb -->
+            <ol class="breadcrumb">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="active">{{ ez_content_name(content) }}</li>
+            </ol><!-- /breadcrumb -->
+
+
+        </div><!-- /alternative-home-section-container -->
+
+    </div><!-- /alternative-home-section -->
+
+<!-- =========================================
+    Page Content
+    ========================================== -->
+    <!-- page-content -->
+    <div id="page-content">
+
+
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+
+                <!-- col-md-8 -->
+                <div class="col-md-8 blog-posts">
+
+
+                    <!-- post-main-wrapper -->
+                    <div class="post-main-wrapper">
+
+
+                        <!-- post-wrapper -->
+                        <div class="post-wrapper">
+
+
+                            <!-- post-header -->
+                            <div class="post-header">
+
+                                <!-- post-image -->
+                                <div class="post-image">
+                                    <img src="{{ ez_field_value(content, 'image_full').uri }}" alt="{{ ez_field_value(content, 'title') }}" />
+                                </div><!-- /post-image -->
+
+                            </div><!-- /post-header -->
+
+
+                            <!-- post-container -->
+                            <div class="post-container">
+
+                                <!-- post-title -->
+                                <div class="post-title">
+                                    <h2>
+                                        {{ ez_field_value(content, 'title') }}
+                                    </h2>
+                                </div><!-- /post-title -->
+
+
+                                <!-- post-meta -->
+                                <div class="post-meta">
+
+                                    <!-- post-date -->
+                                    <span class="post-date">
+                                        <i class="fa fa-clock-o"></i>
+                                        <a href="#" title="Date">{{ ez_field_value(content, 'publication_date')|localizeddate('full', 'none', app.request.locale) }}</a>
+                                    </span>
+                                    <!-- /post-date -->
+
+                                    <!-- post-author -->
+                                    <span class="post-author">
+                                        <i class="fa fa-user"></i>
+                                        <a href="#" title="Author">{{ ez_field_value(content, 'author') }}</a>
+                                    </span>
+                                    <!-- /post-author -->
+
+                                    <!-- post-cat -->
+                                    <span class="post-cat">
+                                        <i class="fa fa-folder-open"></i>
+                                        <a href="#" title="Category">Formations</a>
+                                    </span>
+                                    <!-- /post-cat -->
+
+                                </div><!-- /post-meta -->
+
+
+                                <!-- post-content -->
+                                <div class="post-content">
+                                    {{ ez_render_field(content, 'body', {
+                                        attr: {
+                                            class: 'text-main blog-post-body'
+                                        }
+                                    }) }}
+                                </div><!-- /post-content -->
+
+
+                            </div><!-- /post-container -->
+
+
+                        </div><!-- /post-wrapper -->
+
+
+                    </div><!-- /post-main-wrapper -->
+
+
+                    <!-- post-share -->
+                    <div class="post-share">
+                        <span>Partager cet article:</span>
+                        <a href="{% if location.isDraft %}#"{% else %}//www.facebook.com/sharer/sharer.php?u={{ app.request.uri }}{{ path(location) }}" target="_blank"{% endif %} class="facebook" title="Facebook">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="{% if location.isDraft %}#"{% else %}//twitter.com/home?status={{ app.request.uri }}{{ path(location) }}" target="_blank"{% endif %} class="twitter" title="Twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="gplus" title="Google Plus">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div><!-- /post-share -->
+
+                    <!-- post-reply -->
+                    <div class="post-replay">
+
+                        <!-- replay-title -->
+                        <div class="replay-title">
+                            <h4>Poster un commentaire</h4>
+                        </div><!-- /replay-title -->
+
+
+                        <!-- form -->
+                        <form role="form" method="post" action="#">
+
+                            <!-- row -->
+                            <div class="row">
+
+                                <!-- col-md-6 -->
+                                <div class="col-md-6">
+
+                                    <!-- Contact Name -->
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Nom" name="authorname">
+                                    </div><!-- /Contact Name -->
+
+                                </div><!-- /col-md-6 -->
+
+                                <!-- col-md-6 -->
+                                <div class="col-md-6">
+
+                                    <!-- Contact Email -->
+                                    <div class="form-group">
+                                        <input type="text" class="form-control email" placeholder="Email" name="authoremail">
+                                    </div><!-- /Contact Email -->
+
+                                </div><!-- /col-md-6 -->
+
+
+                                <!-- col-md-12 -->
+                                <div class="col-md-12">
+
+                                    <!-- Contact Message -->
+                                    <div class="form-group">
+                                        <textarea rows="10" class="form-control" placeholder="Message" name="authormessage"></textarea>
+                                    </div><!-- /Contact Message -->
+
+                                </div><!-- /col-md-12 -->
+
+
+                                <!-- col-md-12 -->
+                                <div class="col-md-12">
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-lg btn-nesto">
+                                        envoyer
+                                    </button>
+                                </div><!-- /col-md-12 -->
+
+                            </div><!-- /row -->
+
+                        </form><!-- /form -->
+
+                                <!--<div class="col-md-6 pull-left">
+
+                                    {% set randomFace = 'assets/images/faces/' ~ random('1234') ~ '.jpg' %}
+                                    <img class="rounded circle aligned blog-author-face" src="{{ asset(randomFace) }}" />
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="group-two aligned pull-right">
+                                        <img class="aligned" src="{{ asset('assets/images/social_bubble.svg') }}">
+                                        <div class="aligned">
+                                            <p class="disqus-comment-count" data-disqus-identifier="{{ content.id }}">{{ 'loading comments...'|trans }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="borderline borderline-extra"></div> -->
+                    </div><!-- /post-replay -->
+
+
+                </div><!-- /col-md-8 -->
+
+
+            </div><!-- /row -->
+        </div><!-- /container -->
+
+
+    </div><!-- /page-content -->
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        <div class="col-md-11 space-top">
+
+                            <div class="col-md-10 col-md-offset-1 space-top space-bottom">
+                                {{ ez_comments_render_content(content.contentInfo) }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

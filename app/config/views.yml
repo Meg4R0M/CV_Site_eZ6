@@ -1,9 +1,9 @@
 ezpublish:
     system:
-        default:
-            pagelayout: pagelayout.html.twig
+        site:
+            pagelayout: HomeBundle:Default:pagelayout.html.twig
             user:
-                layout: pagelayout.html.twig
+                layout: HomeBundle:Default:pagelayout.html.twig
                 login_template: user\login.html.twig
 
             user_registration:
@@ -14,107 +14,42 @@ ezpublish:
             content_view:
                 full:
                     home_page:
-                        template: full\home_page.html.twig
+                        template: HomeBundle:full:home_page.html.twig
                         params:
-                            blog_location_id: '%app.home.blog_location_id%'
-                            gallery_location_id: '%app.home.gallery_location_id%'
-                            personalResume_location_id: '%app.home.personalResume_location_id%'
-                            contact_location_id: '%app.layout.contact_location_id%'
-                            testimonials_location_id: '%app.home.testimonials_location_id%'
-                            certifications_location_id: '%app.home.certifications_location_id%'
-                            services_location_id: '%app.home.services_location_id%'
-                            skills_location_id: '%app.home.skills_location_id%'
+                            blog_location_id: '%home.home.blog_location_id%'
+                            gallery_location_id: '%home.home.gallery_location_id%'
+                            personalResume_location_id: '%home.home.personalResume_location_id%'
+                            contact_location_id: '%home.layout.contact_location_id%'
+                            testimonials_location_id: '%home.home.testimonials_location_id%'
+                            certifications_location_id: '%home.home.certifications_location_id%'
+                            services_location_id: '%home.home.services_location_id%'
+                            skills_location_id: '%home.home.skills_location_id%'
                         match:
                             Identifier\ContentType: [home_page]
 
                     blog:
-                        controller: app.paginated_query_controller:contentQueryPaginationAction
+                        controller: home.paginated_query_controller:contentQueryPaginationAction
                         params:
-                            page_limit: '%app.blog_post_list_limit%'
+                            page_limit: '%home.blog_post_list_limit%'
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    location_id: '%app.home.blog_location_id%'
+                                    location_id: '%home.home.blog_location_id%'
                                 assign_results_to: blog_posts
-                        template: full\blog.html.twig
+                        template: HomeBundle:full:blog.html.twig
                         match:
                             Identifier\ContentType: [blog]
 
                     blog_post:
-                        template: full\blog_post.html.twig
+                        template: HomeBundle:full:blog_post.html.twig
                         match:
                             Identifier\ContentType: [blog_post]
 
                     contact_form:
-                        controller: app.controller.contactform:showContactFormAction
-                        template: full\contact_form.html.twig
+                        controller: home.controller.contactform:showContactFormAction
+                        template: HomeBundle:full:contact_form.html.twig
                         match:
                             Identifier\ContentType: [contact_form]
-
-                    gallery:
-                        controller: app.paginated_query_controller:contentQueryPaginationAction
-                        params:
-                            page_limit: '%app.gallery.images_limit%'
-                            query:
-                                query_type: AppBundle:LatestContent
-                                parameters:
-                                    location_id: '%app.home.gallery_location_id%'
-                                assign_results_to: images
-                        template: full\gallery.html.twig
-                        match:
-                            Identifier\ContentType: [gallery]
-
-                    personalResume:
-                        controller: app.paginated_query_controller:contentQueryPaginationAction
-                        params:
-                            page_limit: '%app.home.personalresume_image_limit%'
-                            query:
-                                query_type: AppBundle:LatestContent
-                                parameters:
-                                    location_id: '%app.home.personalResume_location_id%'
-                                assign_results_to: images
-                        template: full\personalResume.html.twig
-                        match:
-                            Identifier\ContentType: [resume_gallery]
-
-                    testimonials:
-                        controller: app.paginated_query_controller:contentQueryPaginationAction
-                        params:
-                            page_limit: '%app.home.testimonials_limit%'
-                            query:
-                                query_type: AppBundle:LatestContent
-                                parameters:
-                                    location_id: '%app.home.testimonials_location_id%'
-                                assign_results_to: images
-                        template: full\testimonials.html.twig
-                        match:
-                            Identifier\ContentType: [testimonials]
-
-                    certifications:
-                        controller: app.paginated_query_controller:contentQueryPaginationAction
-                        params:
-                            page_limit: '%app.home.certifications_limit%'
-                            query:
-                                query_type: AppBundle:LatestContent
-                                parameters:
-                                    location_id: '%app.home.certifications_location_id%'
-                                assign_results_to: images
-                        template: full\certifications.html.twig
-                        match:
-                            Identifier\ContentType: [certifications]
-
-                    services:
-                        controller: app.paginated_query_controller:contentQueryPaginationAction
-                        params:
-                            page_limit: '%app.home.services_limit%'
-                            query:
-                                query_type: AppBundle:LatestContent
-                                parameters:
-                                    location_id: '%app.home.services_location_id%'
-                                assign_results_to: images
-                        template: full\services.html.twig
-                        match:
-                            Identifier\ContentType: [services]
 
                 line:
                     blog_post:
@@ -124,32 +59,32 @@ ezpublish:
 
                 home:
                     image:
-                        template: home\portfolio.html.twig
+                        template: HomeBundle:home:portfolio.html.twig
                         match:
                             Identifier\ContentType: [image_portfolio]
 
                     image_resume:
-                        template: home\image_resume.html.twig
+                        template: HomeBundle:home:image_resume.html.twig
                         match:
                             Identifier\ContentType: [image_resume]
 
                     testimonial:
-                        template: home\testimonials.html.twig
+                        template: HomeBundle:home:testimonials.html.twig
                         match:
                             Identifier\ContentType: [testimonial]
 
                     certification:
-                        template: home\certification.html.twig
+                        template: HomeBundle:home:certification.html.twig
                         match:
                             Identifier\ContentType: [certification]
 
                     service:
-                        template: home\service.html.twig
+                        template: HomeBundle:home:service.html.twig
                         match:
                             Identifier\ContentType: [service]
 
                     skill:
-                        template: home\skill.html.twig
+                        template: HomeBundle:home:skill.html.twig
                         match:
                             Identifier\ContentType: [skill]
 
@@ -168,17 +103,17 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.blog_post_limit%'
-                                    location_id: '%app.home.blog_location_id%'
+                                    limit: '%home.home.blog_post_limit%'
+                                    location_id: '%home.home.blog_location_id%'
                                 assign_results_to: content_items
                         template: parts\content_list.html.twig
                         match:
                             Identifier\ContentType: [blog]
 
                     contact_form:
-                        controller: app.controller.contactform:showContactFormAction
+                        controller: home.controller.contactform:showContactFormAction
                         template: parts\contact_form.html.twig
                         match:
                             Identifier\ContentType: [contact_form]
@@ -188,12 +123,12 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.gallery_image_limit%'
-                                    location_id: '%app.home.gallery_location_id%'
+                                    limit: '%home.home.gallery_image_limit%'
+                                    location_id: '%home.home.gallery_location_id%'
                                 assign_results_to: content_items
-                        template: parts\content_list.html.twig
+                        template: HomeBundle:parts:content_list.html.twig
                         match:
                             Identifier\ContentType: [gallery]
 
@@ -202,12 +137,12 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.personalResume_image_limit%'
-                                    location_id: '%app.home.personalResume_location_id%'
+                                    limit: '%home.home.personalResume_image_limit%'
+                                    location_id: '%home.home.personalResume_location_id%'
                                 assign_results_to: content_items
-                        template: parts\content_list.html.twig
+                        template: HomeBundle:parts:content_list.html.twig
                         match:
                             Identifier\ContentType: [resume_gallery]
 
@@ -216,12 +151,12 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.testimonials_limit%'
-                                    location_id: '%app.home.testimonials_location_id%'
+                                    limit: '%home.home.testimonials_limit%'
+                                    location_id: '%home.home.testimonials_location_id%'
                                 assign_results_to: content_items
-                        template: parts\content_list.html.twig
+                        template: HomeBundle:parts:content_list.html.twig
                         match:
                             Identifier\ContentType: [testimonials]
 
@@ -230,12 +165,12 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.certifications_limit%'
-                                    location_id: '%app.home.certifications_location_id%'
+                                    limit: '%home.home.certifications_limit%'
+                                    location_id: '%home.home.certifications_location_id%'
                                 assign_results_to: content_items
-                        template: parts\content_list.html.twig
+                        template: HomeBundle:parts:content_list.html.twig
                         match:
                             Identifier\ContentType: [certifications]
 
@@ -244,12 +179,12 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.services_limit%'
-                                    location_id: '%app.home.services_location_id%'
+                                    limit: '%home.home.services_limit%'
+                                    location_id: '%home.home.services_location_id%'
                                 assign_results_to: content_items
-                        template: parts\content_list.html.twig
+                        template: HomeBundle:parts:content_list.html.twig
                         match:
                             Identifier\ContentType: [services]
 
@@ -258,12 +193,12 @@ ezpublish:
                         params:
                             view_type: home
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%app.home.skills_limit%'
-                                    location_id: '%app.home.skills_location_id%'
+                                    limit: '%home.home.skills_limit%'
+                                    location_id: '%home.home.skills_location_id%'
                                 assign_results_to: content_items
-                        template: parts\content_list.html.twig
+                        template: HomeBundle:parts:content_list.html.twig
                         match:
                             Identifier\ContentType: [skills]
 
@@ -272,9 +207,9 @@ ezpublish:
                         controller: ez_query:ContentQueryAction
                         params:
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    location_id: '%app.home.blog_location_id%'
+                                    location_id: '%home.home.blog_location_id%'
                                 assign_results_to: blog_posts
                         template: parts\blog_posts_list.html.twig
                         match:
@@ -284,15 +219,15 @@ ezpublish:
                     random_blog_posts:
                         controller: ez_query:ContentQueryAction
                         params:
-                            random_posts_limit: '%app.blog_post.random_posts_limit%'
+                            random_posts_limit: '%home.blog_post.random_posts_limit%'
                             query:
-                                query_type: AppBundle:LatestContent
+                                query_type: HomeBundle:LatestContent
                                 parameters:
-                                    location_id: '%app.home.blog_location_id%'
+                                    location_id: '%home.home.blog_location_id%'
                                 assign_results_to: random_blog_posts
                         template: parts\random_blog_posts.html.twig
                         match:
                             Identifier\ContentType: [blog_post]
 
             field_templates:
-                - { template: content_fields.html.twig, priority: 100 }
+                - { template: HomeBundle:Default:content_fields.html.twig, priority: 100 }

@@ -1,0 +1,128 @@
+{% extends noLayout == true ? viewbaseLayout : pagelayout %}
+
+{% block content %}
+
+    <!-- =========================================
+    Alternative Home Section
+    ========================================== -->
+    <!-- alternative-home-section -->
+    <div id="alternative-home-section">
+        <!-- alternative-home-section-overlayer -->
+        <div id="alternative-home-section-overlayer"></div>
+        <!-- alternative-home-section-container -->
+        <div id="alternative-home-section-container">
+            <!-- breadcrumb -->
+            <ol class="breadcrumb">
+                <li class="active">{{ ez_render_field(content, 'description') }}</li>
+            </ol>
+            <!-- /breadcrumb -->
+        </div>
+        <!-- /alternative-home-section-container -->
+    </div>
+    <!-- /alternative-home-section -->
+
+    <!-- =========================================
+    Page Content
+    ========================================== -->
+    <!-- page-content -->
+    <div id="page-content">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- col-md-8 -->
+                <div class="col-md-8 blog-posts">
+                    {% set postIndex = 0 %}
+                    {% if blog_posts|length() > 0 %}
+                        {% for post in blog_posts %}
+                            <!-- post-main-wrapper -->
+                            <div class="post-main-wrapper">
+                                <!-- post-wrapper -->
+                                <div class="post-wrapper image-post-type">
+                                    <!-- post-header -->
+                                    <div class="post-header">
+                                        {% if ez_field_value(post, 'type_preview') == "2" %}
+                                            <iframe id="player" type="text/html" width="640" height="360"
+                                                src="{{ ez_field_value(post, 'youtube_video') }}?rel=0&enablejsapi=1&origin=http://meg4r0m.ovh"
+                                                frameborder="0"></iframe>
+                                        {% elseif ez_field_value(post, 'type_preview') == "1" %}
+                                            <!-- TODO add HTML5 Player -->
+                                        {% else %}
+                                            <!-- post-image -->
+                                            <div class="post-image">
+                                                <a href="{{ path('ez_urlalias', {contentId: post.id}) }}">
+                                                    {{ ez_render_field(post, 'image_preview', {
+                                                        parameters: {
+                                                            class: 'img-responsive img-rounded'
+                                                        }
+                                                    }) }}
+                                                </a>
+                                            </div>
+                                            <!-- /post-image -->
+                                        {% endif %}
+                                    </div>
+                                    <!-- /post-header -->
+                                    <!-- post-container -->
+                                    <div class="post-container">
+                                        <!-- post-title -->
+                                        <div class="post-title">
+                                            <h2>
+                                                <a href="{{ path('ez_urlalias', {contentId: post.id}) }}">{{ ez_content_name(post) }}</a>
+                                            </h2>
+                                        </div>
+                                        <!-- /post-title -->
+                                        <!-- post-meta -->
+                                        <div class="post-meta">
+                                            <!-- post-date -->
+                                            <span class="post-date">
+                                                <i class="fa fa-clock-o"></i>
+                                                <a href="#" title="Date">6 Dec 2016</a>
+                                            </span><!-- /post-date -->
+                                            <!-- post-author -->
+                                            <span class="post-author">
+                                                <i class="fa fa-user"></i>
+                                                <a href="#" title="Author">Meg4R0M</a>
+                                            </span><!-- /post-author -->
+                                            <!-- post-cat -->
+                                            <span class="post-cat">
+                                                <i class="fa fa-folder-open"></i>
+                                                <a href="#" title="Category">Framework PHP</a>
+                                            </span><!-- /post-cat -->
+                                        </div><!-- /post-meta -->
+                                        <!-- post-content -->
+                                        <div class="post-content">
+                                            <p>{{ ez_render_field(post, 'intro') }}</p>
+                                        </div>
+                                        <!-- /post-content -->
+                                    </div><!-- /post-container -->
+                                    <!-- post-link -->
+                                    <div class="post-link">
+                                        <a href="symfony-post.html" title="Symfony 3">
+                                            <span>
+                                                <span class="post-type"></span>
+                                                <span class="post-anchor"></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <!-- /post-link -->
+                                </div><!-- /post-wrapper -->
+                            </div><!-- /post-main-wrapper -->
+                        {% endfor %}
+                    {% endif %}
+                </div><!-- /col-md-8 -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div><!-- /page-content -->
+
+
+
+    <div class="container">
+        <div class="col-lg-12 space-bottom text-center">
+            {% if blog_posts.haveToPaginate() %}
+                {{ pagerfanta(blog_posts, 'twitter_bootstrap3_translated', {
+                    routeName: location
+                }) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
