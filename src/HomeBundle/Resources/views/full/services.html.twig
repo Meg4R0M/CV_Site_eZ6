@@ -1,0 +1,51 @@
+{% extends "HomeBundle:Default:pagelayout.html.twig" %}
+
+{% block content %}
+    <div style="height:70px;background: #2a2a2a"></div>
+<!-- =========================================
+Services Section
+========================================== -->
+    <!-- services-section -->
+    <div id="services-section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- col-md-12 -->
+                <div class="col-md-12">
+                    <!-- section-title -->
+                    <div class="section-title wow fadeInDown" data-wow-duration="1.5s">
+                        <h1>Services</h1>
+                    </div><!-- /section-title -->
+                    <!-- section-desc -->
+                    <div class="section-desc wow fadeInUp" data-wow-duration="1.5s">
+                        <h3>Ce que je fais</h3>
+                    </div><!-- /section-desc -->
+                </div><!-- /col-md-12 -->
+                {% for item in items %}
+                    <!-- col-md-6 -->
+                    <div class="col-md-6">
+                        <!-- feature-box -->
+                        <div class="feature-box wow fadeInLeft" data-wow-duration="1.5s">
+                            <!-- box-icon -->
+                            <div class="box-icon">
+                                <i class="{{ ez_field_value( item, "icon_name" ) }}"></i>
+                            </div><!-- /box-icon -->
+                            <!-- box-icon -->
+                            <div class="box-content">
+                                <!-- box-title -->
+                                <div class="box-title">
+                                    <h3><a href={{ path('ez_urlalias', {'contentId': item.contentInfo.id}) }}>{{ ez_render_field( item, "name" ) }}</a></h3>
+                                </div><!-- /box-title -->
+                                <!-- box-desc -->
+                                <div class="box-desc">
+                                    <p>{{ ez_render_field( item, "description" ) }}</p>
+                                </div><!-- /box-desc -->
+                            </div><!-- /box-icon -->
+                        </div><!-- /feature-box -->
+                    </div><!-- /col-md-6 -->
+                {% endfor %}
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div><!-- /services-section -->
+{% endblock %}

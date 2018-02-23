@@ -182,7 +182,7 @@
         <div id="portfolio-photostack" class="photostack">
             <div>
                 {{ render_esi(controller('ez_content:viewAction', {
-                    locationId: gallery_location_id,
+                    locationId: projects_location_id,
                     viewType: 'home'
                 })) }}
             </div>
@@ -196,7 +196,7 @@
     <div id="more-section">
         <!-- more-button -->
         <div class="more-button">
-            <a href="{{ path('ez_urlalias', {locationId: gallery_location_id}) }}" title="{{ 'View all'|trans }}" class="btn btn-lg btn-nesto-o">
+            <a href="{{ path('ez_urlalias', {locationId: projects_location_id}) }}" title="{{ 'View all'|trans }}" class="btn btn-lg btn-nesto-o">
                 {{ 'View all'|trans }}
             </a>
         </div><!-- /more-button -->

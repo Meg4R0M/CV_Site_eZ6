@@ -1,5 +1,7 @@
 ezpublish:
     system:
+        admin:
+
         site:
             pagelayout: HomeBundle:Default:pagelayout.html.twig
             user:
@@ -17,7 +19,7 @@ ezpublish:
                         template: HomeBundle:full:home_page.html.twig
                         params:
                             blog_location_id: '%home.home.blog_location_id%'
-                            gallery_location_id: '%home.home.gallery_location_id%'
+                            projects_location_id: '%home.home.projects_location_id%'
                             personalResume_location_id: '%home.home.personalResume_location_id%'
                             contact_location_id: '%home.layout.contact_location_id%'
                             testimonials_location_id: '%home.home.testimonials_location_id%'
@@ -26,6 +28,12 @@ ezpublish:
                             skills_location_id: '%home.home.skills_location_id%'
                         match:
                             Identifier\ContentType: [home_page]
+
+                    services:
+                        controller: app.controller.services:showAction
+                        template: HomeBundle:full:services.html.twig
+                        match:
+                            Identifier\ContentType: [services]
 
                     blog:
                         controller: home.paginated_query_controller:contentQueryPaginationAction
@@ -118,19 +126,19 @@ ezpublish:
                         match:
                             Identifier\ContentType: [contact_form]
 
-                    gallery:
+                    projects:
                         controller: ez_query:ContentQueryAction
                         params:
                             view_type: home
                             query:
                                 query_type: HomeBundle:LatestContent
                                 parameters:
-                                    limit: '%home.home.gallery_image_limit%'
-                                    location_id: '%home.home.gallery_location_id%'
+                                    limit: '%home.home.projects_image_limit%'
+                                    location_id: '%home.home.projects_location_id%'
                                 assign_results_to: content_items
                         template: HomeBundle:parts:content_list.html.twig
                         match:
-                            Identifier\ContentType: [gallery]
+                            Identifier\ContentType: [projects]
 
                     personalResume:
                         controller: ez_query:ContentQueryAction

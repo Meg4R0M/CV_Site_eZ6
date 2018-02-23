@@ -97,10 +97,10 @@ parameters:
     home.home.blog_location_id: 62
 
     # says how many images should be shown on home page
-    home.home.gallery_image_limit: 10
+    home.home.projects_image_limit: 10
 
     # locationId used for fetching `image` items on home page
-    home.home.gallery_location_id: 58
+    home.home.projects_location_id: 101
 
     # says how many images should be shown on home page
     home.home.testimonials_limit: 5
