@@ -5,8 +5,8 @@ services:
     app.criteria.children:
         class: HomeBundle\Criteria\Children
 
-    app.controller.services:
-        class: HomeBundle\Controller\ServicesController
+    app.controller.container:
+        class: HomeBundle\Controller\ContainerController
         arguments:
             - '@ezpublish.api.service.search'
             - '@ezpublish.config.resolver'

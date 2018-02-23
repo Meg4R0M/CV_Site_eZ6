@@ -11,7 +11,7 @@ use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use HomeBundle\Criteria\Children;
 
-class ServicesController
+class ContainerController
 {
     /** @var \eZ\Publish\API\Repository\SearchService */
     protected $searchService;

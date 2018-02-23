@@ -1,0 +1,41 @@
+{% extends "HomeBundle:Default:pagelayout.html.twig" %}
+
+{% block content %}
+    <div style="height:70px;background: #2a2a2a"></div>
+    <!-- =========================================
+    Skills Section
+    ========================================== -->
+    <!-- skills-section-overlayer -->
+    <div id="skills-section-overlayer">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- owl-skills-wrapper -->
+                <div id="owl-skills-wrapper">
+                    <!-- owl-skills -->
+                    <div class="owl-skills">
+                        {% for item in items %}
+                            <!-- slide-item -->
+                            <div>
+                                <!-- slide-content -->
+                                <div class="slide-content">
+                                    <!-- Value -->
+                                    <div class="skills" data-rel="{{ ez_field_value( item, "level" ) }}" id="{{ item.versionInfo.contentInfo.id }}"></div>
+                                    <!-- skill-title -->
+                                    <div class="skill-title">
+                                        <h2>{{ ez_render_field( item, "name" ) }}</h2>
+                                    </div><!-- /skill-title -->
+                                    <!-- skill-content -->
+                                    <div class="skill-content">
+                                        <p>{{ ez_render_field( item, "description" ) }}</p>
+                                    </div><!-- /skill-content -->
+                                </div><!-- /slide-content -->
+                            </div><!-- /slide-item -->
+                        {% endfor %}
+                    </div><!-- /owl-skills -->
+                </div><!-- /owl-skills-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div><!-- /skills-section-overlayer -->
+{% endblock %}
