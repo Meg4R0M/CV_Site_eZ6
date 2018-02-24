@@ -1,0 +1,61 @@
+{% extends "HomeBundle:Default:pagelayout.html.twig" %}
+
+{% block content %}
+    <div style="height:70px;background: #2a2a2a"></div>
+    <!-- =========================================
+    Testimonials Section
+    ========================================== -->
+    <!-- testimonials-section -->
+    <div id="testimonials-section">
+        <!-- testimonials-section-overlayer -->
+        <div id="testimonials-section-overlayer">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- col-md-12 -->
+                    <div class="col-md-12">
+                        <!-- owl-testimonials-wrapper -->
+                        <div id="owl-testimonials-wrapper">
+                            <!-- owl-testimonials -->
+                            <div class="owl-testimonials">
+                                {% for item in items %}
+                                    <!-- slide-item -->
+                                    <div>
+
+                                        <!-- slide-content -->
+                                        <div class="slide-content">
+
+                                            <!-- client-img -->
+                                            <div class="client-img">
+                                                {{ ez_render_field(item, 'image', {
+                                                    parameters: {
+                                                        alias: 'gallery_image_line_home'
+                                                    }
+                                                }) }}
+                                            </div><!-- /client-img -->
+
+                                            <!-- client-name -->
+                                            <div class="client-name">
+                                                <h2>{{ ez_render_field( item, "name" ) }}</h2>
+                                                <p style="color: lightgray">{{ ez_render_field( item, "job_name" ) }}</p>
+                                            </div><!-- /client-name -->
+
+                                            <!-- client-quote -->
+                                            <div class="client-quote">
+                                                <p>{{ ez_render_field( item, "testimonial" ) }}</p>
+                                            </div><!-- /client-quote -->
+
+                                        </div><!-- /slide-content -->
+
+                                    </div><!-- /slide-item -->
+                                    <hr>
+                                {% endfor %}
+                            </div><!-- /owl-testimonials -->
+                        </div><!-- /owl-testimonials-wrapper -->
+                    </div><!-- /col-md-12 -->
+                </div><!-- /row -->
+            </div><!-- /container -->
+        </div><!-- /testimonials-section-overlayer -->
+    </div><!-- /testimonials-section -->
+{% endblock %}

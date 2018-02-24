@@ -60,6 +60,12 @@ ezpublish:
                         match:
                             Identifier\ContentType: [projects]
 
+                    testimonials:
+                        controller: app.controller.container:showAction
+                        template: HomeBundle:full:testimonials.html.twig
+                        match:
+                            Identifier\ContentType: [testimonials]
+
                     blog:
                         controller: home.paginated_query_controller:contentQueryPaginationAction
                         params:
