@@ -1,0 +1,80 @@
+{% extends "HomeBundle:Default:pagelayout.html.twig" %}
+
+{% block content %}
+    <div style="height:70px;background: #2a2a2a"></div>
+    <!-- =========================================
+    Resume Section
+    ========================================== -->
+    <!-- resume-section -->
+    <div id="resume-section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- col-md-12 -->
+                <div class="col-md-12">
+                    <!-- section-title -->
+                    <div class="section-title wow fadeInDown" data-wow-duration="1.5s">
+                        <h1>CV {{ 'Resume'|trans }}</h1>
+                    </div><!-- /section-title -->
+                    <!-- section-desc -->
+                    <div class="section-desc wow fadeInUp" data-wow-duration="1.5s">
+                        <h3>Formations &amp; Experiences</h3>
+                    </div><!-- /section-desc -->
+                </div><!-- /col-md-12 -->
+                <!-- owl-resume-wrapper -->
+                <div id="owl-resume-wrapper">
+                    <!-- owl-resume -->
+                    <div class="owl-resume" style="display: flex; flex-direction: row; flex-wrap: wrap;justify-content: center;align-content: space-around">
+                        {% for item in items %}
+                            <!-- slide-item -->
+                            <div style="max-width: 40%">
+                                <!-- slide-content -->
+                                <div class="slide-content" style="margin-bottom: 10%;">
+                                    <!-- resume-wrapper -->
+                                    <div class="resume-wrapper">
+                                        <!-- resume-image -->
+                                        <div class="resume-image">
+                                            {{ ez_render_field(item, 'presume_image', {
+                                                parameters: {
+                                                    alias: 'gallery_image_line_home',
+                                                    alt: 'Resume Image',
+                                                    class: 'resumeImage'
+                                                }
+                                            }) }}
+                                            <!-- resume-date -->
+                                            <div class="resume-date">
+                                                <p>{{ ez_render_field(item, 'presume_date') }}</p>
+                                            </div><!-- /resume-date -->
+                                        </div><!-- /resume-image -->
+                                        <!-- resume-type -->
+                                        <div class="resume-type">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div><!-- /resume-type -->
+                                        <!-- resume-content -->
+                                        <div class="resume-content">
+                                            <!-- resume-title -->
+                                            <div class="resume-title">
+                                                <h4>{{ ez_render_field(item, 'presume_name') }}</h4>
+                                            </div><!-- /resume-title -->
+                                            <!-- resume-desc -->
+                                            <div class="resume-desc">
+                                                <p>{{ ez_render_field(item, 'presume_caption') }}</p>
+                                            </div><!-- /resume-desc -->
+                                        </div><!-- /resume-content -->
+                                    </div><!-- /resume-wrapper -->
+                                </div><!-- /slide-content -->
+                            </div><!-- /slide-item -->
+                        {% endfor %}
+                    </div><!-- /owl-resume -->
+                </div><!-- /owl-resume-wrapper -->
+                <!-- download-resume -->
+                <div class="download-resume">
+                    <a href="{{ path( "ez_urlalias", {"locationId": personalResumeCV_location_id} ) }}" title="Download Resume" class="btn btn-lg btn-nesto">
+                        Télécharger CV
+                    </a>
+                </div><!-- /download-resume -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div><!-- /resume-section -->
+{% endblock %}

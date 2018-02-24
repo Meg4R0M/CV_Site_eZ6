@@ -80,6 +80,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        personalResumeCV_location_id: '%home.home.personalResumeCV_location_id%'
 
 # Assetic Configuration
 assetic:

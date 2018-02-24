@@ -41,6 +41,11 @@ ezpublish:
                         match:
                             Identifier\ContentType: [skills]
 
+                    personalResume:
+                        controller: app.controller.container:showAction
+                        template: HomeBundle:full:personal_resume.html.twig
+                        match:
+                            Identifier\ContentType: [resume_gallery]
                     blog:
                         controller: home.paginated_query_controller:contentQueryPaginationAction
                         params:

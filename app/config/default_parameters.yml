@@ -132,6 +132,9 @@ parameters:
     # locationId used for fetching `image_resume` items on home page
     home.home.personalResume_location_id: 57
 
+    # locationId used for fetching `PDF Resume` items
+    home.home.personalResumeCV_location_id : 102
+
     # number of `blog_post` items displayed per page in the blog view
     home.blog_post_list_limit: 5
 
