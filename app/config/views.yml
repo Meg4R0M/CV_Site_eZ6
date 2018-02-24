@@ -46,6 +46,20 @@ ezpublish:
                         template: HomeBundle:full:personal_resume.html.twig
                         match:
                             Identifier\ContentType: [resume_gallery]
+
+                    projects:
+                        controller: home.paginated_query_controller:contentQueryPaginationAction
+                        params:
+                            page_limit: '%home.projects_post_list_limit%'
+                            query:
+                                query_type: HomeBundle:LatestContent
+                                parameters:
+                                    location_id: '%home.home.projects_location_id%'
+                                assign_results_to: project_posts
+                        template: HomeBundle:full:projects.html.twig
+                        match:
+                            Identifier\ContentType: [projects]
+
                     blog:
                         controller: home.paginated_query_controller:contentQueryPaginationAction
                         params:

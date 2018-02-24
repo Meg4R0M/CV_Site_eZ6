@@ -135,6 +135,9 @@ parameters:
     # locationId used for fetching `PDF Resume` items
     home.home.personalResumeCV_location_id : 102
 
+    # number of `project` items displayed per page in the projects view
+    home.projects_post_list_limit: 6
+
     # number of `blog_post` items displayed per page in the blog view
     home.blog_post_list_limit: 5
 
