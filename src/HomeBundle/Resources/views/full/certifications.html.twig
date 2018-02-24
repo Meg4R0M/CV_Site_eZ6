@@ -1,0 +1,64 @@
+{% extends noLayout == true ? viewbaseLayout : pagelayout %}
+
+{% block content %}
+    <div style="height:70px;background: #2a2a2a"></div>
+
+    <div class="container">
+        <div class="row">
+            
+            <!-- col-md-12 -->
+            <div class="col-md-12">
+                <!-- section-title -->
+                <div class="section-title wow fadeInDown" data-wow-duration="1.5s">
+                    <h1>{{ ez_content_name(content) }}</h1>
+                </div><!-- /section-title -->
+                <!-- section-desc -->
+                <div class="section-desc wow fadeInUp" data-wow-duration="1.5s">
+                    <h3>{{ ez_render_field(content, 'description') }}</h3>
+                </div><!-- /section-desc -->
+            </div><!-- /col-md-12 -->
+
+            <div class="col-lg-12 main-block">
+                <div id="lightgallery" class="lightgallery-style">
+                    {% if certifications_posts|length() > 0 %}
+                        {% for item in certifications_posts %}
+                            <!-- col-md-3 col-sm-6 col-xs-6 -->
+                            <div class="col-md-3 col-sm-6 col-xs-6">
+                                <!-- pricing-table -->
+                                <div class="pricing-table wow fadeInUp" data-wow-duration="1.5s">
+                                    <!-- table-title -->
+                                    <div class="table-title">
+                                        <h3>{{ ez_render_field( item, "date" ) }}</h3>
+                                    </div><!-- /table-title -->
+                                    <!-- table-title -->
+                                    <div class="table-price">
+                                        <h1>
+                                            <span class="price">{{ ez_render_field( item, "name" ) }}</span>
+                                            <span class="duration">{{ ez_render_field( item, "version" ) }}</span>
+                                        </h1>
+                                    </div><!-- /table-title -->
+                                    <!-- table-button -->
+                                    <div class="table-button">
+                                        <a href="{{ ez_field_value( item, "link" ) }}" title="Afficher la certification" class="btn btn-lg btn-nesto btn-cert" target="_blank">
+                                            Afficher
+                                        </a>
+                                    </div><!-- /table-button -->
+                                </div><!-- /pricing-table -->
+                            </div><!-- /col-md-3 col-sm-6 col-xs-6 -->
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-lg-12 space-bottom text-center">
+            {%  if certifications_posts.haveToPaginate() %}
+                {{ pagerfanta(certifications_posts, 'twitter_bootstrap3_translated', {
+                    routeName: location
+                }) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

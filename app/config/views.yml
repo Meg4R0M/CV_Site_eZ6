@@ -66,6 +66,19 @@ ezpublish:
                         match:
                             Identifier\ContentType: [testimonials]
 
+                    certifications:
+                        controller: home.paginated_query_controller:contentQueryPaginationAction
+                        params:
+                            page_limit: '%home.certifications_post_list_limit%'
+                            query:
+                                query_type: HomeBundle:LatestContent
+                                parameters:
+                                    location_id: '%home.home.certifications_location_id%'
+                                assign_results_to: certifications_posts
+                        template: HomeBundle:full:certifications.html.twig
+                        match:
+                            Identifier\ContentType: [certifications]
+
                     blog:
                         controller: home.paginated_query_controller:contentQueryPaginationAction
                         params:

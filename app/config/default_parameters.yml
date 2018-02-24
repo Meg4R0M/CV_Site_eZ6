@@ -114,6 +114,9 @@ parameters:
     # locationId used for fetching `image` items on home page
     home.home.certifications_location_id: 60
 
+    # number of `certification` items displayed per page in the certifications view
+    home.certifications_post_list_limit: 8
+
     # says how many images should be shown on home page
     home.home.services_limit: 4
 
