@@ -31,7 +31,7 @@ class MenuQueryType implements QueryType
             new Query\Criterion\Subtree('/1/2/'),
             new Query\Criterion\LanguageCode($this->languages),
             // ID des elements desirés dans le menu "Pages"
-            new Query\Criterion\ContentId(array(0)),
+            new Query\Criterion\ContentId(array(103)),
         ]);
 
         $options = [
