@@ -21,6 +21,7 @@ ezpublish:
                             blog_location_id: '%home.home.blog_location_id%'
                             projects_location_id: '%home.home.projects_location_id%'
                             personalResume_location_id: '%home.home.personalResume_location_id%'
+                            personalResumeCV_content_id: '%home.home.personalResumeCV_content_id%'
                             contact_location_id: '%home.layout.contact_location_id%'
                             testimonials_location_id: '%home.home.testimonials_location_id%'
                             certifications_location_id: '%home.home.certifications_location_id%'
