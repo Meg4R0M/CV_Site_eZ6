@@ -136,6 +136,8 @@ parameters:
     home.home.personalResume_location_id: 57
 
     # locationId used for fetching `PDF Resume` items
+    home.home.personalResumeCV_location_id : 102
+
     home.home.personalResumeCV_content_id : 100
 
     # number of `project` items displayed per page in the projects view
