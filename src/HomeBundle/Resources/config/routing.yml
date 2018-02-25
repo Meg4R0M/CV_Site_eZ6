@@ -1,0 +1,9 @@
+contact_form_home:
+    path: /Contact
+    defaults:
+        _controller: 'HomeBundle:contact:send'
+
+twitter:
+    path: /tweets
+    defaults:
+        _controller: 'HomeBundle:Twitter:twitter'

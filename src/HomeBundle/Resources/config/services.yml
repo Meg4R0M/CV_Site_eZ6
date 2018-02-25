@@ -11,3 +11,7 @@ services:
             - '@ezpublish.api.service.search'
             - '@ezpublish.config.resolver'
             - '@app.criteria.children'
+
+    app.controller.twitter:
+        class: HomeBundle\Controller\TwitterController
+        arguments: ['@service_container']

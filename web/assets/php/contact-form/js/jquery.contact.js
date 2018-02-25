@@ -20,7 +20,7 @@ $(document).ready(function () {
 			usersubject = $('#subject');
 			usermessage = $('#message');
 			isvalid = 1;
-			url = "php/contact-form/php/contact.php";
+			url = "/Contact";
 
             if (username.val() === "") {
                 $('#name').addClass('form-error');

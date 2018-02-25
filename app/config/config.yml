@@ -82,6 +82,10 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         personalResumeCV_location_id: '%home.home.personalResumeCV_location_id%'
+        twitter_consumer_key: '%twitter_consumer_key%'
+        twitter_consumer_secret: '%twitter_consumer_secret%'
+        twitter_access_token: '%twitter_access_token%'
+        twitter_access_secret: '%twitter_access_secret%'
 
 # Assetic Configuration
 assetic:

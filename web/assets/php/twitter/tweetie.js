@@ -101,7 +101,7 @@
         var that = this;
 
         // Fetch tweets
-        $.getJSON('php/twitter/tweet.php', { count: settings.count, exclude_replies: settings.hideReplies }, function (twt) {
+        $.getJSON('/tweets', { count: settings.count, exclude_replies: settings.hideReplies }, function (twt) {
             that.find('span').fadeOut('fast', function () {
                 that.html('<ul></ul>');
 
