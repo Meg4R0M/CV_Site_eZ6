@@ -76,17 +76,27 @@
                                             <!-- post-date -->
                                             <span class="post-date">
                                                 <i class="fa fa-clock-o"></i>
-                                                <a href="#" title="Date">6 Dec 2016</a>
+                                                <a href="#" title="Date">{{ ez_field_value(post, 'publication_date')|date('d M Y') }}</a>
                                             </span><!-- /post-date -->
                                             <!-- post-author -->
                                             <span class="post-author">
                                                 <i class="fa fa-user"></i>
-                                                <a href="#" title="Author">Meg4R0M</a>
+                                                <a href="#" title="Author">{{ ez_field_value(post, 'author') }}</a>
                                             </span><!-- /post-author -->
                                             <!-- post-cat -->
                                             <span class="post-cat">
                                                 <i class="fa fa-folder-open"></i>
-                                                <a href="#" title="Category">Framework PHP</a>
+                                                {% if ez_field_value(post, 'category') == "0" %}
+                                                    <a href="#" title="Category">FORMATIONS</a>
+                                                {% elseif ez_field_value(post, 'category') == "1" %}
+                                                    <a href="#" title="Category">EVENEMENTS</a>
+                                                {% elseif ez_field_value(post, 'category') == "2" %}
+                                                    <a href="#" title="Category">FRAMEWORKS</a>
+                                                {% elseif ez_field_value(post, 'category') == "3" %}
+                                                    <a href="#" title="Category">HACKING</a>
+                                                {% else %}
+                                                    <a href="#" title="Category">HORS CATEGORIE</a>
+                                                {% endif %}
                                             </span><!-- /post-cat -->
                                         </div><!-- /post-meta -->
                                         <!-- post-content -->
@@ -97,7 +107,7 @@
                                     </div><!-- /post-container -->
                                     <!-- post-link -->
                                     <div class="post-link">
-                                        <a href="symfony-post.html" title="Symfony 3">
+                                        <a href="{{ path('ez_urlalias', {contentId: post.id}) }}" title="{{ ez_content_name(post) }}">
                                             <span>
                                                 <span class="post-type"></span>
                                                 <span class="post-anchor"></span>
@@ -113,9 +123,6 @@
             </div><!-- /row -->
         </div><!-- /container -->
     </div><!-- /page-content -->
-
-
-
     <div class="container">
         <div class="col-lg-12 space-bottom text-center">
             {% if blog_posts.haveToPaginate() %}

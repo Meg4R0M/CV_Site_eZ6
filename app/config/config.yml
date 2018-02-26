@@ -82,6 +82,8 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         personalResumeCV_location_id: '%home.home.personalResumeCV_location_id%'
+        home_location_id: '%home.top_menu.location_id%'
+        blog_location_id: '%home.home.blog_location_id%'
         twitter_consumer_key: '%twitter_consumer_key%'
         twitter_consumer_secret: '%twitter_consumer_secret%'
         twitter_access_token: '%twitter_access_token%'

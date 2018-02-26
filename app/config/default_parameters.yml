@@ -94,7 +94,7 @@ parameters:
     home.home.blog_post_limit: 3
 
     # locationId used for fetching `blog_post` items on home page
-    home.home.blog_location_id: 62
+    home.home.blog_location_id: 105
 
     # says how many images should be shown on home page
     home.home.projects_image_limit: 10
@@ -138,6 +138,7 @@ parameters:
     # locationId used for fetching `PDF Resume` items
     home.home.personalResumeCV_location_id : 102
 
+    # contentId used for download `PDF Resume`
     home.home.personalResumeCV_content_id : 100
 
     # number of `project` items displayed per page in the projects view
