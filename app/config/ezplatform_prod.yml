@@ -1,2 +1,19 @@
 imports:
     - { resource: ezplatform.yml }
+
+ezpublish:
+    siteaccess:
+        match:
+            Compound\LogicalAnd:
+                # Nested matchers, with their configuration.
+                # No need to precise their matching values (true will suffice).
+                site_en:
+                    matchers:
+                        Map\URI:
+                            en: true
+                        Map\Host:
+                            www.meg4r0m.ovh: true
+                            meg4r0m.ovh: true
+                    match: site_en
+            Map\Host:
+                admin.meg4r0m.ovh: site_admin

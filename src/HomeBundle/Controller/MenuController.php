@@ -64,6 +64,7 @@ class MenuController
         return $this->templating->renderResponse(
             $template, [
                 'menuItems' => $menuItems,
+                'currentUrl' => $_SERVER["REQUEST_URI"],
             ], new Response()
         );
     }

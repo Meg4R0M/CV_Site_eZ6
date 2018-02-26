@@ -41,7 +41,8 @@ Top Content
 
 
 </div><!-- /top-content -->
-{% set currentUrl = app.request.attributes.get('semanticPathinfo') %}
+
+{{ currentUrl }}
 {% if currentUrl == '/' %}
     {% include 'HomeBundle:Layout:top_menu.html.twig' %}
 {% else %}
