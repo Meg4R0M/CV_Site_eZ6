@@ -1,0 +1,85 @@
+<!-- =========================================
+Menu
+========================================== -->
+<!-- menu-wrapper -->
+<header id="menu-wrapper" class="menubgC">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- col-md-12 -->
+            <div class="col-md-12">
+                <!-- navbar-header -->
+                <div class="navbar-header">
+                    <!-- logo -->
+                    <a href="{{ path( ezpublish.rootLocation() ) }}" class="navbar-brand" title="Meg4R0M">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" />
+                    </a><!-- /logo -->
+                </div><!-- /navbar-header -->
+                <!-- menu-button -->
+                <button class="menu-button" id="open-button">
+                    <i class="fa fa-bars"></i>
+                </button><!-- /menu-button -->
+                <!-- navbar-collapse -->
+                <nav class="navbar-collapse collapse">
+                    <!-- nav -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Home -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: home_location_id}) }}" title="Home" data-scroll>
+                                Accueil
+                            </a>
+                        </li><!-- /Home -->
+                        <!-- Services -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: services_location_id}) }}" title="Services" data-scroll>
+                                Services
+                            </a>
+                        </li><!-- /Services -->
+                        <!-- Skills -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: skills_location_id}) }}" title="Skills" data-scroll>
+                                Compétences
+                            </a>
+                        </li><!-- /Skills -->
+                        <!-- Resume -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: resume_location_id}) }}" title="Resume" data-scroll>
+                                CV
+                            </a>
+                        </li><!-- /Resume -->
+                        <!-- Portfolio -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: projects_location_id}) }}" title="Portfolio" data-scroll>
+                                Portfolio
+                            </a>
+                        </li><!-- /Portfolio -->
+                        <!-- Pricing -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: certifications_location_id}) }}" title="Certifications" data-scroll>
+                                Certifications
+                            </a>
+                        </li><!-- /Pricing -->
+                        <!-- Contact -->
+                        <li>
+                            <a href="{{ path('ez_urlalias', {locationId: contact_location_id}) }}" title="Contact" data-scroll>
+                                Contact
+                            </a>
+                        </li><!-- /Contact -->
+                        {% if menuItems is defined and menuItems is not empty %}
+                            <!-- category-list -->
+                            <li class="category-list">
+                                <a href="javascript:void(0)" title="Pages">Pages</a>
+                                <ul>
+                                    {% for item in menuItems %}
+                                        <li><a href="{{ path(item) }}">{{ ez_content_name(item.contentInfo) }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li><!-- /category-list -->
+                        {% endif %}
+                    </ul><!-- /nav -->
+                </nav><!-- /navbar-collapse -->
+            </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+</header><!-- /menu-wrapper -->

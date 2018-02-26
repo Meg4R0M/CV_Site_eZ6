@@ -41,4 +41,9 @@ Top Content
 
 
 </div><!-- /top-content -->
-{% include 'HomeBundle:Layout:top_menu.html.twig' %}
+{% set currentUrl = app.request.attributes.get('semanticPathinfo') %}
+{% if currentUrl == '/' %}
+    {% include 'HomeBundle:Layout:top_menu.html.twig' %}
+{% else %}
+    {% include 'HomeBundle:Layout:top_menu_for_full_page.html.twig' %}
+{% endif %}
