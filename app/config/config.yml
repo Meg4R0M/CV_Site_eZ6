@@ -166,3 +166,18 @@ jms_translation:
             output_dir: '%kernel.root_dir%/../vendor/ezsystems/ezplatform-admin-ui/src/bundle/Resources/translations/'
             excluded_dirs: [Behat, Tests]
             output_format: "xliff"
+
+ez_comments:
+    system:
+        site_group:
+            default_provider: no_comments
+            disqus:
+                shortname: meg4r0m-cv
+                count: true
+            content_comments:
+                blog_post:
+                    enabled: true
+                    provider: disqus
+                    match:
+                        Identifier\ContentType:
+                            - blog_post

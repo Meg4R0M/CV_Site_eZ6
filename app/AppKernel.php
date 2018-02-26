@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             new EzSystems\EzPlatformAdminUiBundle\EzPlatformAdminUiBundle(),
             new EzSystems\EzPlatformAdminUiModulesBundle\EzPlatformAdminUiModulesBundle(),
             new EzSystems\EzPlatformAdminUiAssetsBundle\EzPlatformAdminUiAssetsBundle(),
+            new EzSystems\CommentsBundle\EzSystemsCommentsBundle(),
             // Application
             new AppBundle\AppBundle(),
             new HomeBundle\HomeBundle(),

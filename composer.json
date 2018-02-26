@@ -50,6 +50,7 @@
         "components/bootstrap": "3.3.5",
         "components/normalize.css": "3.0.3",
         "components/font-awesome": "4.4.0",
+        "ezsystems/comments-bundle": "~6.1",
         "willdurand/js-translation-bundle": "^2.6.4",
         "oneup/flysystem-bundle": "^2.0",
         "friendsofsymfony/jsrouting-bundle": "^1.4",

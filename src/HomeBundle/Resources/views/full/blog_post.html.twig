@@ -93,80 +93,23 @@
                             <i class="fa fa-google-plus"></i>
                         </a>
                     </div><!-- /post-share -->
-                    <!-- post-reply -->
-                    <div class="post-replay">
-                        <!-- replay-title -->
-                        <div class="replay-title">
-                            <h4>Poster un commentaire</h4>
-                        </div><!-- /replay-title -->
-                        <!-- form -->
-                        <form role="form" method="post" action="#">
-                            <!-- row -->
-                            <div class="row">
-                                <!-- col-md-6 -->
-                                <div class="col-md-6">
-                                    <!-- Contact Name -->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nom" name="authorname">
-                                    </div><!-- /Contact Name -->
-                                </div><!-- /col-md-6 -->
-                                <!-- col-md-6 -->
-                                <div class="col-md-6">
-                                    <!-- Contact Email -->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control email" placeholder="Email" name="authoremail">
-                                    </div><!-- /Contact Email -->
-                                </div><!-- /col-md-6 -->
-                                <!-- col-md-12 -->
-                                <div class="col-md-12">
-                                    <!-- Contact Message -->
-                                    <div class="form-group">
-                                        <textarea rows="10" class="form-control" placeholder="Message" name="authormessage"></textarea>
-                                    </div><!-- /Contact Message -->
-
-                                </div><!-- /col-md-12 -->
-                                <!-- col-md-12 -->
-                                <div class="col-md-12">
-                                    <!-- Submit Button -->
-                                    <button type="submit" class="btn btn-lg btn-nesto">
-                                        envoyer
-                                    </button>
-                                </div><!-- /col-md-12 -->
-                            </div><!-- /row -->
-                        </form><!-- /form -->
-                                <!--<div class="col-md-6 pull-left">
-
-                                    {% set randomFace = 'assets/images/faces/' ~ random('1234') ~ '.jpg' %}
-                                    <img class="rounded circle aligned blog-author-face" src="{{ asset(randomFace) }}" />
-
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="group-two aligned pull-right">
-                                        <img class="aligned" src="{{ asset('assets/images/social_bubble.svg') }}">
-                                        <div class="aligned">
-                                            <p class="disqus-comment-count" data-disqus-identifier="{{ content.id }}">{{ 'loading comments...'|trans }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="borderline borderline-extra"></div> -->
-                    </div><!-- /post-replay -->
                 </div><!-- /col-md-8 -->
             </div><!-- /row -->
-        </div><!-- /container -->
-    </div><!-- /page-content -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+            <section>
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-11 space-top">
-                            <div class="col-md-10 col-md-offset-1 space-top space-bottom">
-                                {# ez_comments_render_content(content.contentInfo) #}
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-11 space-top">
+                                    <div class="col-md-10 col-md-offset-1 space-top space-bottom">
+                                        {{ ez_comments_render_content(content.contentInfo) }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        </div><!-- /container -->
+    </div><!-- /page-content -->
 {% endblock %}
