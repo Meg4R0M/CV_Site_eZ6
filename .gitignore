@@ -84,4 +84,4 @@ phpunit.xml.dist
 src/.htaccess
 tests/
 var/
-
+stats/
