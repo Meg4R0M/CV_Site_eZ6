@@ -82,6 +82,5 @@ app/config/services.yml
 bin/.travis/trusty/setup_ezplatform.sh
 phpunit.xml.dist
 src/.htaccess
-tests/
 var/
 stats/
